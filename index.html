@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KabsMetrics — Simple insights for your vehicle business</title>
+  <meta name="description" content="KabsMetrics helps you track revenue, costs, and profit for your vehicle rentals in one clean dashboard." />
+  <meta property="og:title" content="KabsMetrics" />
+  <meta property="og:description" content="Track revenue, costs, and profit for your vehicle rentals in one clean dashboard." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.png" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      --bg:#0b1020; --card:#121a33; --muted:#8ea0c9; --text:#e8eefc; --accent:#6ea8ff; --accent-2:#c0d8ff; --border:#223055;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; background:radial-gradient(1200px 800px at 80% -10%, #172347 0%, #0b1020 40%), linear-gradient(180deg,#0b1020 0%,#0a0f1e 100%); color:var(--text);}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1000px; margin:0 auto; padding:24px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:0.3px}
+    .logo{width:36px;height:36px; display:grid; place-items:center; background:linear-gradient(135deg,#6ea8ff,#a9c7ff); color:#0b1020; font-weight:900; border-radius:10px; box-shadow:0 6px 24px rgba(110,168,255,.25)}
+    nav a{opacity:.9; padding:8px 10px; border-radius:8px}
+    nav a:hover{background:#10193a}
+    .hero{display:grid; grid-template-columns:1.2fr 1fr; gap:28px; align-items:center; padding:64px 0}
+    @media (max-width:900px){.hero{grid-template-columns:1fr; padding:48px 0}}
+    .title{font-size: clamp(32px, 6vw, 52px); line-height:1.05; margin:0 0 14px}
+    .subtitle{font-size: clamp(16px, 3vw, 20px); color:var(--muted); margin:0 0 24px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; background:linear-gradient(180deg,#6ea8ff,#4c82e6); color:#0b1020; font-weight:700; border:1px solid rgba(255,255,255,.1); box-shadow:0 8px 30px rgba(110,168,255,.35);}
+    .btn:hover{transform:translateY(-1px)}
+    .btn.secondary{background:transparent; color:var(--accent-2); border:1px solid var(--border)}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)); border:1px solid var(--border); border-radius:16px; padding:18px}
+    .mock{aspect-ratio: 16/10; background:radial-gradient(500px 250px at 30% 10%,rgba(110,168,255,.25),transparent), linear-gradient(180deg,#0e1530,#0b1226); border:1px solid #1a2647; border-radius:18px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.03), 0 30px 80px rgba(0,0,0,.35); overflow:hidden}
+    .mock-inner{display:grid; grid-template-columns:1.2fr 1fr; gap:16px; height:100%; padding:18px}
+    .pill{display:inline-flex; align-items:center; gap:8px; font-size:12px; color:#cfe0ff; background:#0f1a38; border:1px solid #1c2b57; padding:8px 10px; border-radius:999px}
+    .features{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:28px 0 8px}
+    @media (max-width:900px){.features{grid-template-columns:1fr}}
+    .feature h3{margin:0 0 8px}
+    .fine{color:var(--muted); font-size:14px}
+    footer{margin:40px 0 12px; color:var(--muted); font-size:14px}
+    .link{color:var(--accent)}
+    /* Modal */
+    dialog{border:none; padding:0; border-radius:16px; background:#0c142b; color:var(--text); width:min(800px, 92vw); box-shadow:0 30px 100px rgba(0,0,0,.6);}
+    .modal-body{padding:22px}
+    dialog::backdrop{background:rgba(0,0,0,.55)}
+    .modal-head{display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding:14px 18px}
+    .x{background:transparent; border:1px solid var(--border); color:var(--accent-2); border-radius:10px; padding:6px 10px; cursor:pointer}
+    code.k{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background:#0d1734; border:1px solid #20305b; padding:.2em .45em; border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="#">
+        <span class="logo">KTS</span>
+        <span>KabsMetrics</span>
+      </a>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#privacy" id="open-privacy">Privacy</a>
+        <a href="#support">Support</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="pill">🚘 Vehicle Rentals • 📈 Profit Analytics</p>
+        <h1 class="title">Track revenue, costs & true profit — simply.</h1>
+        <p class="subtitle">KabsMetrics brings all your numbers into one clean dashboard so you can price smarter, cut waste, and grow.</p>
+        <div class="cta">
+          <a class="btn" id="appstore-btn" href="#" target="_blank" rel="noopener"> Download on the App Store</a>
+          <a class="btn secondary" href="#support">Contact Support</a>
+        </div>
+        <p class="fine" style="margin-top:10px">No sign‑in on the web. Install the iOS app to get started.</p>
+      </div>
+      <div class="card mock">
+        <div class="mock-inner">
+          <div class="card" style="display:flex; flex-direction:column; gap:12px">
+            <div>
+              <div class="fine">Monthly Profit</div>
+              <div style="font-size:32px; font-weight:800">$3,482</div>
+              <div class="fine">↑ 14% vs last month</div>
+            </div>
+            <div>
+              <div class="fine">Utilization</div>
+              <div class="card" style="padding:12px">
+                <div class="fine">Fleet</div>
+                <div style="height:8px; background:#0d1734; border:1px solid #20305b; border-radius:8px; overflow:hidden"><div style="width:76%; height:100%; background:linear-gradient(90deg,#6ea8ff,#9fc0ff)"></div></div>
+                <div class="fine" style="margin-top:8px">76% booked days</div>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="display:flex; flex-direction:column; gap:10px">
+            <div class="fine">Top Vehicles</div>
+            <div class="card" style="display:flex; justify-content:space-between; align-items:center">
+              <span>2018 Kia Soul</span>
+              <strong>$892</strong>
+            </div>
+            <div class="card" style="display:flex; justify-content:space-between; align-items:center">
+              <span>2019 Mirage G4</span>
+              <strong>$611</strong>
+            </div>
+            <div class="card" style="display:flex; justify-content:space-between; align-items:center">
+              <span>2023 Jetta Sport</span>
+              <strong>$558</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="features">
+        <div class="card feature">
+          <h3>True Profit</h3>
+          <p class="fine">Factor revenue, financing, maintenance, insurance, and taxes to see what you actually keep.</p>
+        </div>
+        <div class="card feature">
+          <h3>Smart Pricing</h3>
+          <p class="fine">Know when to raise/lower prices based on seasonality and utilization trends.</p>
+        </div>
+        <div class="card feature">
+          <h3>Simple Exports</h3>
+          <p class="fine">One‑tap CSV exports for your accountant and quarterly estimates.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" class="card" style="margin-top:24px">
+      <h3 style="margin-top:0">Support</h3>
+      <p class="fine">Email: <a class="link" href="mailto:support@kabsmetrics.com">support@kabsmetrics.com</a></p>
+      <p class="fine">Business: Kabs Technology Solutions LLC</p>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> KabsMetrics. All rights reserved. · <a class="link" href="#privacy" id="open-privacy-2">Privacy Policy</a></div>
+    </footer>
+  </div>
+
+  <!-- Privacy Modal -->
+  <dialog id="privacy-modal">
+    <div class="modal-head">
+      <strong>Privacy Policy</strong>
+      <button class="x" id="close-privacy">Close</button>
+    </div>
+    <div class="modal-body">
+      <p><em>Last updated: <span id="pp-date"></span></em></p>
+      <p>KabsMetrics collects only the data necessary to provide our services. This includes account identifiers (such as email), subscription status, and app usage diagnostics. Financial figures you enter (revenue, expenses, loan terms) are stored to power analytics features you choose to use.</p>
+      <p><strong>We do not sell your data.</strong> We use industry‑standard security and restrict access to authorized personnel only.</p>
+      <p><strong>Data you provide:</strong> vehicle names, trips, costs, payments, and settings you configure. <strong>Data we do not access:</strong> your bank credentials or card numbers—KabsMetrics does not store or process payment card data.</p>
+      <p><strong>Analytics:</strong> We may use privacy‑respecting analytics to understand aggregate usage (for example, Plausible or App Store analytics). IP addresses are not used to identify you.</p>
+      <p><strong>Your choices:</strong> You can export or delete your data at any time by emailing <a class="link" href="mailto:privacy@kabsmetrics.com">privacy@kabsmetrics.com</a>. California residents can exercise CCPA rights via the same address.</p>
+      <p><strong>Contact:</strong> <a class="link" href="mailto:privacy@kabsmetrics.com">privacy@kabsmetrics.com</a> · <a class="link" href="mailto:support@kabsmetrics.com">support@kabsmetrics.com</a></p>
+    </div>
+  </dialog>
+
+  <script>
+    // Set dynamic bits
+    const yEl = document.getElementById('year');
+    if (yEl) yEl.textContent = new Date().getFullYear();
+    const ppDate = document.getElementById('pp-date');
+    if (ppDate) ppDate.textContent = new Date().toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
+
+    // Modal controls
+    const dialog = document.getElementById('privacy-modal');
+    const openers = [document.getElementById('open-privacy'), document.getElementById('open-privacy-2')];
+    const closer = document.getElementById('close-privacy');
+    openers.forEach(b => b && b.addEventListener('click', (e)=>{ e.preventDefault(); dialog.showModal(); }));
+    closer && closer.addEventListener('click', ()=> dialog.close());
+
+    // App Store link placeholder — replace with your real URL
+    document.getElementById('appstore-btn').href = 'https://apps.apple.com/us/app/your-app-id';
+  </script>
+</body>
+</html>
